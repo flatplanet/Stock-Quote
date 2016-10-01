@@ -1,0 +1,35 @@
+<h1>Stocks</h1>
+
+<%= form_tag root_path, :method => 'POST' do %>
+  <%=text_field_tag 'id', nil, placeholder: 'Enter Company Ticker Symbol', size: 50 %>
+  <%= submit_tag 'Submit' %>
+<% end %>
+
+<br/><br/>
+<% if @stock && @stock.no_data_message %>
+
+    <strong>Sorry, <%= params[:id] %> doesn't seem to be an actual stock...</strong>    
+
+<% elsif @stock %>
+
+    <strong>Company Name: </strong><%= @stock.name %><br/>
+    <strong>Stock Symbol: </strong><%= @stock.symbol %><br/>
+    <strong>Current Ask: </strong><%= @stock.ask %><br/>
+    <strong>Earnings Per Share: </strong><%= @stock.earnings_share %><br/>
+    <strong>Price/Earning Ratio: </strong><%= @stock.pe_ratio %><br/>
+    <strong>Market Cap: </strong><%= @stock.market_capitalization %><br/>
+    <strong>Previous Close: </strong><%= @stock.previous_close %><br/>
+    <strong>Stock Open: </strong><%= @stock.open %><br/>
+    <strong>Day's Range: </strong><%= @stock.days_range %><br/>
+    <strong>Year High: </strong><%= @stock.year_high %><br/>
+    <strong>Year Low: </strong><%= @stock.year_low %><br/>
+    <strong>Year Low: </strong><%= @stock.year_low %><br/>
+
+<% end %>
+
+<% if params[:id] == "" %>
+    <%= @nothing %>
+<% end %>
+    
+
+
