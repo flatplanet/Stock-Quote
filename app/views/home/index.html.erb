@@ -12,8 +12,8 @@
 
 <% elsif @stock %>
 
-    <strong>Company Name: </strong><%= @stock.name %><br/>
-    <strong>Stock Symbol: </strong><%= @stock.symbol %><br/>
+    <strong>Company Name: </strong><%= @stock.name %> - <%= @stock.symbol %><br/>
+    
     <strong>Current Price: </strong><%= if @stock.price_paid then @stock.price_paid else "Market Closed" end %><br/>
     <strong>Current Ask: </strong><%= @stock.ask %><br/>
     <strong>Earnings Per Share: </strong><%= @stock.earnings_share %><br/>
